@@ -2,12 +2,12 @@
 
 namespace Quanta\Http;
 
-final class Methods
+final class MethodList
 {
     /**
      * @var array<int, string>
      */
-    private array $values;
+    private array $methods;
 
     public static function get(): self
     {
@@ -49,9 +49,9 @@ final class Methods
         return new self('GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS');
     }
 
-    public function __construct(string $value, string ...$values)
+    public function __construct(string $method, string ...$methods)
     {
-        $this->values = [$value, ...$values];
+        $this->methods = [$method, ...$methods];
     }
 
     /**
@@ -59,6 +59,6 @@ final class Methods
      */
     public function values(): array
     {
-        return $this->values;
+        return $this->methods;
     }
 }

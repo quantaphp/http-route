@@ -1,9 +1,9 @@
-# Quanta Psr-15 utilities
+# Quanta Psr-15 route
 
-This package provides [Psr-15](https://www.php-fig.org/psr/psr-15/) utilities.
+This package allow to build [Psr-15](https://www.php-fig.org/psr/psr-15/) routes.
 
-**Require** php >= 7.4.0
+**Require** php >= 8.0
 
-**Installation** `composer require quanta/http-utils`
+**Installation** `composer require quanta/route`
 
 **Run tests** `./vendor/bin/kahlan`
