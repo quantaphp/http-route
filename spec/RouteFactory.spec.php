@@ -26,14 +26,14 @@ describe('RouteFactory::root()', function () {
 
 describe('RouteFactory', function () {
 
-    describe('->name()', function () {
+    describe('->named()', function () {
 
         it('should return a new RouteFactory with the given keys', function () {
             $middleware = mock(MiddlewareInterface::class)->get();
 
             $test1 = new RouteFactory('/pattern', new RouteKeyList, ['key' => 'value'], $middleware);
 
-            $test2 = $test1->name('key1');
+            $test2 = $test1->named('key1');
 
             expect($test2)->not->toBe($test1);
             expect($test2)->toEqual(new RouteFactory(
@@ -43,7 +43,7 @@ describe('RouteFactory', function () {
                 $middleware,
             ));
 
-            $test3 = $test2->name('key2', 'key3');
+            $test3 = $test2->named('key2', 'key3');
 
             expect($test3)->not->toBe($test2);
             expect($test3)->toEqual(new RouteFactory(
@@ -56,14 +56,14 @@ describe('RouteFactory', function () {
 
     });
 
-    describe('->pattern()', function () {
+    describe('->matching()', function () {
 
         it('should return a new RouteFactory with the given pattern', function () {
             $middleware = mock(MiddlewareInterface::class)->get();
 
             $test1 = new RouteFactory('', new RouteKeyList('key'), ['key' => 'value'], $middleware);
 
-            $test2 = $test1->pattern('/pattern1');
+            $test2 = $test1->matching('/pattern1');
 
             expect($test2)->not->toBe($test1);
             expect($test2)->toEqual(new RouteFactory(
@@ -73,7 +73,7 @@ describe('RouteFactory', function () {
                 $middleware,
             ));
 
-            $test3 = $test2->pattern('/pattern2');
+            $test3 = $test2->matching('/pattern2');
 
             expect($test3)->not->toBe($test2);
             expect($test3)->toEqual(new RouteFactory(

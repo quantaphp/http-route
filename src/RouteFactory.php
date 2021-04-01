@@ -29,7 +29,7 @@ final class RouteFactory
         $this->middleware = $middleware;
     }
 
-    public function name(string ...$keys): self
+    public function named(string ...$keys): self
     {
         return new self(
             $this->pattern,
@@ -39,7 +39,7 @@ final class RouteFactory
         );
     }
 
-    public function pattern(string $pattern): self
+    public function matching(string $pattern): self
     {
         return new self(
             $this->pattern . $pattern,
