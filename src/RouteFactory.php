@@ -49,7 +49,7 @@ final class RouteFactory
         );
     }
 
-    public function metadata(int|string $key, mixed $value): self
+    public function with(int|string $key, mixed $value): self
     {
         return new self(
             $this->pattern,

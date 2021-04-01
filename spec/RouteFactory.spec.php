@@ -86,14 +86,14 @@ describe('RouteFactory', function () {
 
     });
 
-    describe('->metadata()', function () {
+    describe('->with()', function () {
 
         it('should return a new RouteFactory with the given metadata', function () {
             $middleware = mock(MiddlewareInterface::class)->get();
 
             $test1 = new RouteFactory('/pattern', new RouteKeyList('key'), [], $middleware);
 
-            $test2 = $test1->metadata('key1', 'value1');
+            $test2 = $test1->with('key1', 'value1');
 
             expect($test2)->not->toBe($test1);
             expect($test2)->toEqual(new RouteFactory(
@@ -103,7 +103,7 @@ describe('RouteFactory', function () {
                 $middleware,
             ));
 
-            $test3 = $test2->metadata('key2', 'value2');
+            $test3 = $test2->with('key2', 'value2');
 
             expect($test3)->not->toBe($test2);
             expect($test3)->toEqual(new RouteFactory(
