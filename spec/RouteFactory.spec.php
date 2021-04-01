@@ -16,10 +16,13 @@ use Quanta\Http\LazyRequestHandler;
 
 describe('RouteFactory::root()', function () {
 
-    it('should return an empty RouteFactory', function () {
-        $test = RouteFactory::root();
+    it('should return the same empty RouteFactory on every call', function () {
+        $test1 = RouteFactory::root();
+        $test2 = RouteFactory::root();
 
-        expect($test)->toEqual(new RouteFactory('', new RouteKeyList, []));
+        expect($test1)->toBe($test2);
+        expect($test1)->toEqual(new RouteFactory('', new RouteKeyList, []));
+        expect($test2)->toEqual(new RouteFactory('', new RouteKeyList, []));
     });
 
 });

@@ -12,9 +12,15 @@ final class RouteFactory
      */
     private array $middleware;
 
+    private static self|null $root = null;
+
     public static function root(): self
     {
-        return new self('', new RouteKeyList, []);
+        if (is_null(self::$root)) {
+            self::$root = new self('', new RouteKeyList, []);
+        }
+
+        return self::$root;
     }
 
     /**
