@@ -7,11 +7,6 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final class RouteFactory
 {
-    /**
-     * @var array<int, MiddlewareInterface>
-     */
-    private array $middleware;
-
     private static self|null $root = null;
 
     public static function root(): self
@@ -22,6 +17,11 @@ final class RouteFactory
 
         return self::$root;
     }
+
+    /**
+     * @var array<int, MiddlewareInterface>
+     */
+    private array $middleware;
 
     /**
      * @param array<mixed> $metadata
