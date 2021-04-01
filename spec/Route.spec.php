@@ -11,6 +11,37 @@ use Quanta\Http\Stack;
 use Quanta\Http\Route;
 use Quanta\Http\MethodList;
 use Quanta\Http\RouteKeyList;
+use Quanta\Http\RouteFactory;
+
+describe('Route::group()', function () {
+
+    it('should return an empty RouteFactory', function () {
+        $test = Route::group();
+
+        expect($test)->toEqual(new RouteFactory('', new RouteKeyList, []));
+    });
+
+});
+
+describe('Route::named()', function () {
+
+    it('should return a RouteFactory with the given name', function () {
+        $test = Route::named('name');
+
+        expect($test)->toEqual(new RouteFactory('', new RouteKeyList('name'), []));
+    });
+
+});
+
+describe('Route::matching()', function () {
+
+    it('should return a RouteFactory with the given pattern', function () {
+        $test = Route::matching('/pattern');
+
+        expect($test)->toEqual(new RouteFactory('/pattern', new RouteKeyList, []));
+    });
+
+});
 
 describe('Route', function () {
 

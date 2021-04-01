@@ -7,6 +7,21 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final class Route
 {
+    public static function group(): RouteFactory
+    {
+        return RouteFactory::root();
+    }
+
+    public static function named(string $name): RouteFactory
+    {
+        return RouteFactory::root()->named($name);
+    }
+
+    public static function matching(string $pattern): RouteFactory
+    {
+        return RouteFactory::root()->matching($pattern);
+    }
+
     /**
      * @var array<int, MiddlewareInterface>
      */
